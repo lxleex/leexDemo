@@ -1,10 +1,7 @@
 package com.leex.java8.lambda;
 
-
-
-
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.annotation.Resource;
 
@@ -15,7 +12,8 @@ import javax.annotation.Resource;
 @Resource(mappedName = "Resource mappedName")
 public class Lambda {
 
-    private static Logger logger = LogManager.getLogger(Lambda.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(Lambda.class);
+
 
     public static void main(String[] args) {
 
@@ -25,7 +23,7 @@ public class Lambda {
         System.out.println(log4j);
         PropertyConfigurator.configure(log4j);//加载.properties文件*/
 
-        logger.info("123 [{}]", 1,2,3,4,5,7);
+        LOGGER.info("123 [{}]", 1,2,3,4,5,7);
 
         //System.out.println("132");
 
