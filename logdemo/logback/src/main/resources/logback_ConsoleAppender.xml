@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <!--
+        配置集中管理属性
+        我们可以直接改属性的 value 值
+        格式：${name}
+    -->
+    <property name="pattern" value="[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} %c %M %L [%thread] %m%n"/>
+    <!--
+    日志输出格式：
+        %-5level
+        %d{yyyy-MM-dd HH:mm:ss.SSS}日期
+        %c类的完整名称
+        %M为method
+        %L为行号
+        %thread线程名称
+        %m或者%msg为信息
+        %n换行
+      -->
+    <!--定义日志文件保存路径属性-->
+
+    <!--控制台日志输出的 appender-->
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <!--控制输出流对象 默认 System.out 改为 System.err-->
+        <target>System.out</target>
+        <!--日志消息格式配置-->
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <!-- 引入上文配置的日志格式 -->
+            <pattern>${pattern}</pattern>
+        </encoder>
+    </appender>
+
+    <!--
+    用来设置某一个包或者具体的某一个类的日志打印级别、以及指定<appender>。
+    <loger>仅有一个name属性，一个可选的level和一个可选的addtivity属性 name:用来指定受此logger约束的某一个包或者具体的某一个类。
+    level:用来设置打印级别，大小写无关：TRACE, DEBUG, INFO, WARN, ERROR, ALL 和 OFF， 如果未设置此属性，那么当前logger将会继承上级的级别。
+    additivity: 是否向上级loger传递打印信息。默认是true。
+    <logger>可以包含零个或多个<appender-ref>元素，标识这个appender将会添加到这个 logger
+    -->
+    <!--
+    也是<logger>元素，但是它是根logger。默认debug level:用来设置打印级别，大小写无关：TRACE, DEBUG, INFO, WARN, ERROR, ALL 和 OFF，
+    <root>可以包含零个或多个<appender-ref>元素，标识这个appender将会添加到这个 logger。
+    -->
+
+    <!--root logger 配置-->
+    <!-- 打开所有的位置级别 -->
+    <root level="ALL">
+        <!-- 将上文定义的console控制台Appender添加进根目录 -->
+        <appender-ref ref="console"/>
+    </root>
+</configuration>

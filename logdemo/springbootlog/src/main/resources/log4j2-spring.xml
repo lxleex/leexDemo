@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    status="warn" 日志框架本身的输出日志级别
+    monitorInterval="5" 自动加载配置文件的间隔时间，不低于 5 秒
+-->
+<Configuration status="debug" monitorInterval="5">
+
+    <properties>
+        <property name="LOG_HOME">src/main/java/com/leex/logs</property>
+    </properties>
+
+    <!--日志处理-->
+    <Appenders>
+
+        <!--日志文件输出 appender-->
+        <File name="file" fileName="${LOG_HOME}/myfile.log">
+            <PatternLayout pattern="[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%-5level] %l %c{36} - %m%n" />
+        </File>
+
+    </Appenders>
+
+    <!--logger 定义-->
+    <Loggers>
+        <!--自定义异步 logger 对象
+            includeLocation="false" 关闭日志记录的行号信息，会影响性能
+            additivity="false" 不在继承 rootlogger 对象
+        -->
+        <AsyncLogger name="com.leex" level="trace" includeLocation="false" additivity="false">
+            <AppenderRef ref="file"/>
+        </AsyncLogger>
+
+        <!--使用 rootLogger 配置 日志级别 level="trace"-->
+        <Root level="trace">
+            <!--指定日志使用的处理器-->
+            <AppenderRef ref="file" />
+        </Root>
+    </Loggers>
+</Configuration>
