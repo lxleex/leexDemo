@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 默认构造方法注入 根据index参数下标设置 顺序必须和参数顺序一致 -->
+    <bean id="myClassDefault" class="com.leex.构造函数注入.MyClass">
+        <constructor-arg value="1"/>
+        <constructor-arg value="一个字符串"/>
+        <constructor-arg ref="anAttribute"/>
+    </bean>
+
+    <!-- 根据index参数下标设置 -->
+    <bean id="myClassIndex" class="com.leex.构造函数注入.MyClass">
+        <constructor-arg index="1" value="一个字符串"/>
+        <constructor-arg index="0" value="1"/>
+        <constructor-arg index="2" ref="anAttribute"/>
+    </bean>
+
+    <!-- 根据参数名字设置 -->
+    <bean id="myClassName" class="com.leex.构造函数注入.MyClass">
+        <constructor-arg name="str" value="一个字符串"/>
+        <constructor-arg name="anInt" value="1"/>
+        <constructor-arg name="anAttribute" ref="anAttribute"/>
+    </bean>
+
+    <!-- 根据参数名字设置 -->
+    <bean id="myClassType" class="com.leex.构造函数注入.MyClass">
+        <constructor-arg type="java.lang.String" value="一个字符串"/>
+        <constructor-arg type="int" value="1"/>
+        <constructor-arg type="com.leex.构造函数注入.AnAttribute" ref="anAttribute"/>
+    </bean>
+
+    <bean id="anAttribute" class="com.leex.构造函数注入.AnAttribute"/>
+
+
+</beans>

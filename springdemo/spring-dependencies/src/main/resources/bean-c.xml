@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--name匹配-->
+    <bean name="person1" class="com.leex.p_c标签注入.Person">
+        <constructor-arg name="name" value="John Doe"/>
+        <constructor-arg name="age" value="1"/>
+        <constructor-arg name="spouse" ref="jane"/>
+    </bean>
+    <!--c标签注入-->
+    <bean id="person2" class="com.leex.p_c标签注入.Person"
+          c:name="John Doe" c:age="1" c:spouse-ref="jane"/>
+
+
+    <!--索引配置-->
+    <bean name="person3" class="com.leex.p_c标签注入.Person">
+        <constructor-arg value="John Doe"/>
+        <constructor-arg value="1"/>
+        <constructor-arg ref="jane"/>
+    </bean>
+    <!--c标签注入 由于 XML 语法的原因，索引符号要求前导_的存在，因为 XML 属性名称不能以数字开头(即使某些 IDE 允许)。-->
+    <bean id="person4" class="com.leex.p_c标签注入.Person"
+          c:_0="John Doe" c:_1="1" c:_2-ref="jane"/>
+
+    <!--好像没有找到c标签type配置的案例-->
+
+    <bean name="jane" class="com.leex.p_c标签注入.Person">
+        <property name="name" value="Jane Doe"/>
+    </bean>
+
+</beans>

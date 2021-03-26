@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <bean id="student" class="com.leex.setter依赖注入.Student">
+        <!--Bean注入 直值primitives/String用 value -->
+        <property name="name" value="小明"/>
+        <!--Bean注入 引用类型用 ref -->
+        <property name="address" ref="addr"/>
+        <!--也可以这样写-->
+        <!--<property name="name">
+            <value type="java.lang.String">小黑</value>
+        </property>
+        <property name="address">
+            <ref bean="addr"/>
+        </property>-->
+
+        <!-- 数组 -->
+        <property name="books">
+            <array>
+                <value>西游记</value>
+                <value>红楼梦</value>
+                <value>水浒传</value>
+            </array>
+        </property>
+        <!-- list -->
+        <property name="hobbys">
+            <list>
+                <value>听歌</value>
+                <value>看电影</value>
+                <value>爬山</value>
+            </list>
+        </property>
+        <property name="addressList">
+            <set>
+                <ref bean="addr"/>
+                <ref bean="addr"/>
+            </set>
+        </property>
+        <!-- map -->
+        <property name="card">
+            <map>
+                <entry key="中国邮政" value="1233123"/>
+                <entry key="建设" value="1231123"/>
+                <!--null值-->
+                <entry>
+                    <key><null/></key>
+                    <null/>
+                </entry>
+            </map>
+        </property>
+        <property name="addressMap">
+            <map>
+                <entry key="中国邮政" value-ref="addr"/>
+                <entry key="建设" value-ref="addr"/>
+            </map>
+        </property>
+        <!-- set集合 -->
+        <property name="games">
+            <set>
+                <value>英雄联盟</value>
+                <value>王者荣耀</value>
+                <!--null值-->
+                <null/>
+            </set>
+        </property>
+        <property name="addressSet">
+            <set>
+                <ref bean="addr"/>
+                <ref bean="addr"/>
+            </set>
+        </property>
+        <!-- null值 -->
+        <property name="wife"><null/></property>
+        <!-- Properties注入 -->
+        <property name="info">
+            <props>
+                <prop key="学号">20190604</prop>
+                <prop key="性别">男</prop>
+                <prop key="姓名">小明</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="addr" class="com.leex.setter依赖注入.Address">
+        <property name="address" value="成都"/>
+    </bean>
+
+
+
+
+</beans>

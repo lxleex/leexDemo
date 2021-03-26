@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="outer" class="com.leex.内部类注入.OuterClass">
+
+        <property name="someValue" value="字段值"/>
+
+        <property name="innerClass">
+            <bean class="com.leex.内部类注入.OuterClass.InnerClass"> <!-- 这是内部的bean -->
+                <property name="name" value="Fiona Apple"/>
+                <property name="age" value="25"/>
+            </bean>
+        </property>
+    </bean>
+
+</beans>

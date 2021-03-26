@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--p标签注入-->
+    <bean name="classic" class="com.leex.p_c标签注入.ExampleBean">
+        <property name="email" value="[emailprotected]"/>
+    </bean>
+
+    <bean name="p-namespace" class="com.leex.p_c标签注入.ExampleBean"
+          p:email="[emailprotected]"/>
+
+
+    <!--p标签注入-->
+    <bean name="john-classic" class="com.leex.p_c标签注入.Person">
+        <property name="name" value="John Doe"/>
+        <property name="spouse" ref="jane"/>
+    </bean>
+
+    <bean name="john-modern"
+          class="com.leex.p_c标签注入.Person"
+          p:name="John Doe"
+          p:spouse-ref="jane"/> <!--特殊格式声明属性引用-->
+
+    <bean name="jane" class="com.leex.p_c标签注入.Person">
+        <property name="name" value="Jane Doe"/>
+    </bean>
+
+</beans>
