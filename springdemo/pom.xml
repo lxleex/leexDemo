@@ -14,6 +14,9 @@
     <modules>
         <module>helloSpring</module>
         <module>spring-dependencies</module>
+        <module>proxy-dome</module>
+        <module>Aop-demo</module>
+        <module>spring-IOC</module>
     </modules>
 
     <dependencies>

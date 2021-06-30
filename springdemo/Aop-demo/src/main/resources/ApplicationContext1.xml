@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!--第二种方式自定义实现-->
+    <!--注册bean-->
+    <bean id="userRepository" class="com.leex.impl.UserRepositoryImpl"/>
+    <bean id="myPointCut" class="com.leex.aop.MyPointCut"/>
+
+    <!--aop的配置-->
+    <aop:config>
+        <!--第二种方式：使用AOP的标签实现-->
+        <aop:aspect ref="myPointCut">
+            <aop:pointcut id="userRepositoryPointCut" expression="execution(* com.leex.impl.UserRepositoryImpl.*(..))"/>
+            <aop:before pointcut-ref="userRepositoryPointCut" method="before"/>
+            <aop:after pointcut-ref="userRepositoryPointCut" method="after"/>
+        </aop:aspect>
+    </aop:config>
+
+</beans>
