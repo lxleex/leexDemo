@@ -1,4 +1,4 @@
-package com.leex.commonResult.modelA;
+package commonResult.modelA;
 
 /**
  * @Author : 86167

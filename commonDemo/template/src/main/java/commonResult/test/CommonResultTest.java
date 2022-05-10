@@ -1,8 +1,8 @@
-package com.leex.commonResult.test;
+package commonResult.test;
 
-import com.leex.commonResult.ClientTemplate;
-import com.leex.commonResult.modelA.ModelAFacade;
-import com.leex.commonResult.modelB.ModelBFacade;
+import commonResult.ClientTemplate;
+import commonResult.modelA.ModelAFacade;
+import commonResult.modelB.ModelBFacade;
 
 /**
  * @Author : 86167

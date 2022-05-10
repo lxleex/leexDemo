@@ -1,6 +1,5 @@
 package 懒加载bean;
 
-import com.leex.setter依赖注入.Student;
 import com.leex.懒加载bean.Mybean1;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;

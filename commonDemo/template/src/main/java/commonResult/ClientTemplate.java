@@ -1,4 +1,4 @@
-package com.leex.commonResult;
+package commonResult;
 
 import com.Util.GsonUtil;
 

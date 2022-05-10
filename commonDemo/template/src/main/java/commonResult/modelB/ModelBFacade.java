@@ -1,6 +1,4 @@
-package com.leex.commonResult.modelB;
-
-import com.leex.commonResult.modelB.CommonResult;
+package commonResult.modelB;
 
 /**
  * @Author : 86167

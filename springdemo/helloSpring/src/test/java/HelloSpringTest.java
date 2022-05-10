@@ -1,4 +1,5 @@
 import com.leex.service.MyService;
+import com.leex.utils.ApplicationContextUtil;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -12,6 +13,9 @@ public class HelloSpringTest {
         ApplicationContext context = new ClassPathXmlApplicationContext("bean.xml");
 
         MyService myService = (MyService) context.getBean("myService");
+
+
+        //MyService myService = ApplicationContextUtil.getBean(MyService.class);
 
         myService.process();
     }
