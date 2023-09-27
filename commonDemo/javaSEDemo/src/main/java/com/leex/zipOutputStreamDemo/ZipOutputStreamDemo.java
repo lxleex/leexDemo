@@ -1,6 +1,7 @@
-package ZipOutputStreamDemo;
+package com.leex.zipOutputStreamDemo;
 
 import java.io.*;
+import java.nio.file.Files;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
@@ -12,14 +13,14 @@ public class ZipOutputStreamDemo {
 
     public static void main(String[] args) throws IOException {
 
-        ZipOutputStream zipOutputStream = new ZipOutputStream(new FileOutputStream(new File("C:\\Users\\86167\\Desktop\\1.zip")));
+        ZipOutputStream zipOutputStream = new ZipOutputStream(Files.newOutputStream(new File("C:\\Users\\86167\\Desktop\\1.zip").toPath()));
 
 
-        File file1 = new File("C:\\Users\\86167\\Desktop\\蛋糕装饰\\蛋糕图片\\0ebf0292a917923565b37e734a3632a.jpg");
-        File file2 = new File("C:\\Users\\86167\\Desktop\\蛋糕装饰\\蛋糕图片\\2d143f916b664c7dab035b2c459b824.jpg");
+        File file1 = new File("C:\\Users\\Administrator\\Desktop\\重装备份\\leex\\Java 基础核心总结_副本.pdf");
+        File file2 = new File("C:\\Users\\Administrator\\Desktop\\重装备份\\leex\\JAVA核心知识点整理.pdf");
 
-        wietw(zipOutputStream, file1, "第一张.jpg");
-        wietw(zipOutputStream, file2, "第2张.jpg");
+        wietw(zipOutputStream, file1, "Java 基础核心总结_副本.pdf");
+        wietw(zipOutputStream, file2, "JAVA核心知识点整理.pdf");
 
         zipOutputStream.close();
 
